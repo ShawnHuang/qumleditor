@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/">
-        <file>resources/helloworld-transparent.png</file>
+    <qresource prefix="/resources">
+        <file alias="open-file">file.png</file>
     </qresource>
 </RCC>
+<!-- vim: ft=xml.qt: -->
