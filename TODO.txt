@@ -1,0 +1,10 @@
+* group
+  - paint
+    + overriding scene.itemat
+      for(Group* group = dynamic_cast<Group*> item)
+      {
+        
+      }
+    + setting boundrect
+
+* ungroup

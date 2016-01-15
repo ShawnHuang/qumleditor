@@ -60,7 +60,7 @@ void CanvasScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
         line->setLine(newLine);
     }
     else
-      QGraphicsScene::mouseMoveEvent(mouseEvent);
+        QGraphicsScene::mouseMoveEvent(mouseEvent);
 }
 
 void CanvasScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
