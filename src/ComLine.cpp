@@ -50,5 +50,4 @@ void ComLine::updatePosition()
   this->arrowPath.lineTo(arrowP3);
   this->arrowPath.lineTo(arrowP2);
   this->arrowPath.lineTo(this->line.p1());
-  qDebug()<<this->line.p1();
 }

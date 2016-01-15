@@ -48,8 +48,7 @@ Port* BasicBox::getPort(QPointF clicked)
     return this->ports[min_idx];
 }
 
-void BasicBox::updatePosition(QPointF pos){
-      this->setPos(pos);
+void BasicBox::updatePosition(){
       for(std::vector<Port*>::size_type i = 0; i != this->ports.size(); i++) {
         this->ports[i]->updatePosition();
       }

@@ -13,7 +13,7 @@ ClassBox::ClassBox()
     this->ports.push_back(new Port(points[i], this));    
   }
   BasicBox::boundPath.addRect( 0, 0, 90, 90);
-  std::cout<<"usecase created"<<std::endl;
+  std::cout<<"class created"<<std::endl;
 }
 
 ClassBox::~ClassBox()
@@ -41,5 +41,4 @@ void ClassBox::paint( QPainter *painter, const QStyleOptionGraphicsItem *option,
   painter->drawLine(QLine(0, 30, 90, 30));
   painter->drawLine(QLine(0, 60, 90, 60));
   painter->drawText(0, 0, 90, 30, Qt::AlignCenter, name);
-  std::cout<<"class paint"<<std::endl;
 }

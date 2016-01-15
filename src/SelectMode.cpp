@@ -22,10 +22,8 @@ void SelectMode::mousePressEvent(QGraphicsSceneMouseEvent * event){
   else
     this->selectState = 0;
   this->pressState = 1;
-  std::cout<<"select pressed"<<std::endl;
 }
 void SelectMode::mouseMoveEvent(QGraphicsSceneMouseEvent * event){
-  std::cout<<"select moved"<<std::endl;
   this->moveState = 1;
 }
 void SelectMode::mouseReleaseEvent(QGraphicsSceneMouseEvent * event){
@@ -37,7 +35,8 @@ void SelectMode::mouseReleaseEvent(QGraphicsSceneMouseEvent * event){
       Shape* item = dynamic_cast<Shape*>(canvas->itemAt(event->buttonDownScenePos(Qt::LeftButton), transform));
       if (this->moveState==1)
       {
-        item->updatePosition(item->scenePos()+event->scenePos()-event->buttonDownScenePos(Qt::LeftButton));
+        item->setPos(item->scenePos()+event->scenePos()-event->buttonDownScenePos(Qt::LeftButton));
+        item->updatePosition();
       }
       else
       {
@@ -70,7 +69,8 @@ void SelectMode::mouseReleaseEvent(QGraphicsSceneMouseEvent * event){
   this->selectState = 0;
   this->pressState = 0;
 
-  std::cout<<"select released"<<std::endl;
+  QList<QGraphicsItem *> selected = canvas->selectedItems();
+  std::cout<<"select :"<< selected.size()<<std::endl;
 }
 
 void SelectMode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * event)
@@ -81,9 +81,7 @@ void SelectMode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * event)
 void SelectMode::unselectAll()
 {
   QList<QGraphicsItem *> selected = canvas->selectedItems();
-  qDebug()<<selected.size();
   for(int i = 0; i < selected.size(); ++i) {
-    qDebug()<<selected[i];
     Shape* item = dynamic_cast<Shape*>(selected[i]);
     if(item) item->setSelected(false);
   }

@@ -11,7 +11,8 @@ public:
   QPainterPath shape() const;
   void add(Shape* item);
   virtual void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget );
-  void updatePosition(QPointF pos);
+  void updatePosition();
+  std::vector<Shape*> getList();
 protected:
   QBrush groupBrush;
   QPainterPath groupPath;

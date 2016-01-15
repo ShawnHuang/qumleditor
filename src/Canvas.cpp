@@ -18,7 +18,6 @@ Canvas::~Canvas()
 
 void Canvas::setMode(Mode* mode)
 {
-    std::cout<<"Set Mode"<<std::endl; 
     this->mode = mode;
 }
 
@@ -41,19 +40,30 @@ void Canvas::group()
         Group* group = new Group();
         for(int i = 0; i < selected.size(); ++i) {
           Shape *item = dynamic_cast<Shape *>(selected[i]);
-          this->removeItem(item);
           group->add(item);
-          std::cout<<"item"<<i<<std::endl; 
         }
         this->addItem(group);
     }
-    std::cout<<"Group"<<selected.count()<<std::endl; 
 }
 
 // ask TA
 void Canvas::ungroup()
 {
-    std::cout<<"UnGroup"<<std::endl; 
+    QList<QGraphicsItem*> selected = this->selectedItems(); 
+    if (selected.count() == 1)
+    {
+        Group *item = dynamic_cast<Group *>(selected.first());
+        if (item)
+        {
+          std::vector<Shape*> list = item->getList();
+          for(unsigned int i = 0; i < list.size(); ++i) {
+            list[i]->setPos(item->mapToParent(list[i]->pos()));
+            list[i]->setParentItem(0);
+            list[i]->setFlag(QGraphicsItem::ItemIsSelectable,true);
+          }
+        }
+        this->removeItem(item);
+    }
 }
 
 // ask TA
@@ -78,7 +88,6 @@ void Canvas::named()
         }
       }
     } 
-    std::cout<<"Named"<<std::endl; 
 }
 
 void Canvas::mouseMoveEvent(QGraphicsSceneMouseEvent * event)

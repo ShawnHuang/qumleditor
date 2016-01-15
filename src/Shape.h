@@ -9,7 +9,7 @@ public:
   virtual QRectF boundingRect() const = 0; // this function will not change any member variables' value
   virtual QPainterPath shape() const = 0;
   virtual void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget ) = 0;
-  virtual void updatePosition(QPointF pos);
+  virtual void updatePosition();
 protected:
   void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * event);
   void mouseMoveEvent(QGraphicsSceneMouseEvent * event);

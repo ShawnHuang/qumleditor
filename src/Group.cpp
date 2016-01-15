@@ -1,6 +1,7 @@
 #include "Shape.h"
 #include "Group.h"
 #include <iostream>
+#include <QDebug>
 
 Group::Group()
 {
@@ -33,16 +34,19 @@ void Group::paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 void Group::add(Shape* item)
 {
    item->setFlag(QGraphicsItem::ItemIsSelectable,false);
-   //item->setFlag(QGraphicsItem::ItemIsMovable,false);
    item->setParentItem(this);
    this->list.push_back(item); 
-   groupPath+=item->shape();
+   groupPath.addPath(mapFromItem(item,item->shape()));
 }
 
-void Group::updatePosition(QPointF pos){
-      this->setPos(pos);
-      for(int i = 0; i< this->list.size(); i++)
+void Group::updatePosition(){
+      for(unsigned int i = 0; i< this->list.size(); i++)
       {
-        this->list[i]->updatePosition(pos);
+        this->list[i]->updatePosition();
       }
+}
+
+std::vector<Shape*> Group::getList()
+{
+  return this->list;
 }

@@ -11,8 +11,7 @@ Shape::~Shape()
     
 }
 
-void Shape::updatePosition(QPointF pos){
-      //this->setPos(pos);
+void Shape::updatePosition(){
     std::cout<<"shape updatePosition"<<std::endl;
 }
 //QRectF Shape::boundingRect() const

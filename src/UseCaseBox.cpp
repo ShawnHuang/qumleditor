@@ -39,5 +39,4 @@ void UseCaseBox::paint( QPainter *painter, const QStyleOptionGraphicsItem *optio
 
   painter->drawPath(BasicBox::boundPath);
   painter->drawText(0, 0, 100, 80, Qt::AlignCenter, name);
-  std::cout<<"usecase paint"<<std::endl;
 }

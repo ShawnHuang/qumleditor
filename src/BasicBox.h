@@ -14,7 +14,7 @@ public:
   virtual QRectF boundingRect() const;
   virtual QPainterPath shape() const;
   virtual void paint( QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget ) = 0;
-  void updatePosition(QPointF pos);
+  void updatePosition();
   Port* getPort(QPointF clicked);
   void setName(QString name);
 protected:
