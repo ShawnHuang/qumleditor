@@ -1,0 +1,18 @@
+[
+  {
+    "id": "b2a735f2-6346-4c2b-84d0-974bb74328a8",
+    "email": "baxcky@gmail.com",
+    "password_hash": "$2a$10$2O7xJtFb980t90RH9/By3eR5t3Vbw1PxERuwAG6cmnxZAS2E8oD8.",
+    "provider_credentials": [
+      {
+        "id": "1b06c644-db2b-4eff-af3e-2239671cd8e7",
+        "email": "baxcky@gmail.com",
+        "full_name": "Clone User credentials",
+        "provider_name": "GitHub",
+        "type": "github",
+        "remote_host": "github.com",
+        "encrypted_api_token": "GMHqpg3O98MnVrTiJ/givacM3e8IaIP2dtXAELN/cn4fyqPfoZCBc4V/QOAq\naiuuImLvl5TAcubHf0uL8x90eA==\n"
+      }
+    ]
+  }
+]
